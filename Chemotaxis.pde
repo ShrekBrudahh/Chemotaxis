@@ -2,10 +2,9 @@ int numberOfBac = 100;
 Bacteria[] bacTab = new Bacteria[numberOfBac];
 
  void setup(){  
-   frameRate(100);
    size(700,700);
    for (int i = 0; i <= (numberOfBac - 1); i++){
-     bacTab[i] = new Bacteria(width/2,height/2, color(255,255,255));
+     bacTab[i] = new Bacteria(350,350, color(255,255,255));
    }
  }  
  void draw(){
@@ -56,6 +55,11 @@ Bacteria[] bacTab = new Bacteria[numberOfBac];
      triangle(pX + sX/2,pY,pX - sX/2,pY,pX,pY + sY);
    }
  }  
+ 
+
+public int rand(int min, int max){
+  return min + (int)(Math.random()*(1+(max-min)));
+}
  
 
 public int rand(int min, int max){
