@@ -4,7 +4,7 @@ Bacteria[] bacTab = new Bacteria[numberOfBac];
  void setup(){  
    size(700,700);
    for (int i = 0; i <= (numberOfBac - 1); i++){
-     bacTab[i] = new Bacteria(350,350, color(255,255,255));
+     bacTab[i] = new Bacteria(width/2,height/2, color(255,255,255));
    }
  }  
  void draw(){
@@ -12,7 +12,7 @@ Bacteria[] bacTab = new Bacteria[numberOfBac];
    for (int i = 0; i <= (numberOfBac - 1); i++){
      bacTab[i].adjustSize(15,15);
      bacTab[i].move(true,mouseX,mouseY,rand(-50,100)/10,rand(-50,100)/10);
-     float dist = dist(bacTab[i].oX,bacTab[i].oY,bacTab[i].pX,bacTab[i].pY);
+     double dist = dista(bacTab[i].oX,bacTab[i].oY,bacTab[i].pX,bacTab[i].pY);
      bacTab[i].color3 = color((int)(255 * Math.cos(dist * 20 * PI/180)),(int)(150 * Math.cos(dist * 20 * PI/180)),(int)(150 * Math.cos(dist * 5 * PI/180)));
      bacTab[i].show();
    }
@@ -60,8 +60,8 @@ Bacteria[] bacTab = new Bacteria[numberOfBac];
 public int rand(int min, int max){
   return min + (int)(Math.random()*(1+(max-min)));
 }
- 
 
-public int rand(int min, int max){
-  return min + (int)(Math.random()*(1+(max-min)));
+public double dista(float x, float y, float x1, float y1){
+  double r = Math.sqrt((x1-x)*(x1-x)+(y1-y)*(y1-y));
+  return r;
 }
